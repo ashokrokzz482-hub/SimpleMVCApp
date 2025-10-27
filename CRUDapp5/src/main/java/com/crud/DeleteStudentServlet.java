@@ -22,7 +22,10 @@ public class DeleteStudentServlet extends HttpServlet {
             ps.setInt(1, id);
 
             int i = ps.executeUpdate();
-            if (i > 0) out.println("<h3>Student deleted successfully!</h3>");
+            if (i > 0) {
+            	out.println("<h3>Student deleted successfully!</h3>");
+            	out.println("<a href=\"index.html\">  Home  </a>");
+            }
             else out.println("<h3>Student not found.</h3>");
         } catch (Exception e) {
             e.printStackTrace();

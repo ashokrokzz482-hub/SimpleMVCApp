@@ -12,15 +12,17 @@ public class InsertStudent {
 	            Class.forName("com.mysql.cj.jdbc.Driver");
 	            Connection con = DriverManager.getConnection(url, user, password);
 
-	            String query = "INSERT INTO student (name, email, course) VALUES (?, ?, ?)";
+	            String query = "UPDATE student SET email=? WHERE id=?";
 	            PreparedStatement ps = con.prepareStatement(query);
-
-	            ps.setString(1, "Ashok");
-	            ps.setString(2, "ashok@example.com");
-	            ps.setString(3, "CSE");
-
+	            ps.setString(1, "newemail@example.com");
+	            ps.setInt(2, 1);
+	            
+	            
 	            int rows = ps.executeUpdate();
-	            System.out.println(rows + " record inserted successfully!");
+	            System.out.println(rows + " record updated successfully!");
+
+
+	            
 
 	            con.close();
 	        } catch (Exception e) {

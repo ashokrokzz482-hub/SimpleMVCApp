@@ -30,7 +30,8 @@ public class AddStudentServlet extends HttpServlet {
 
             int i = ps.executeUpdate();
             if (i > 0) {
-                out.println("<h3>Student added successfully!</h3>");
+                out.println("<h3 >Student added successfully!</h3>");
+            
             } else {
                 out.println("<h3>Failed to add student.</h3>");
             }
